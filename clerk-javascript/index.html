@@ -1,0 +1,217 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h2>Testing....</h2>
+  <div id="app">
+    <div id="sign-in"></div> 
+  </div>
+
+  
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content>
+        <link rel="stylesheet" type="text/css" href="styles.css">
+        <title>Dhungy - Web Player</title>
+        <link rel="icon" href="images/logo4.png">
+        
+    </head>
+    <body>
+      <div id="app">
+        <!-- <div id="sign-in"></div> -->
+        
+        <!-- Clerk Sign-In Modal -->
+        <div id="clerk-signin-modal" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);
+        background-color: white; z-index: 1000; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.3);">
+          <div id="sign-in"></div>
+        </div>
+
+
+        <div class="nav flex">
+            <div class="logo">
+                <ul><li><img  src="images/logo.jpg" alt="logo"></li></ul>
+            </div>
+
+            <div class="home" id="homeBtn">
+                <ul>
+                    <li ><img src="images/home.png" alt="home" /></li>
+                </ul>
+            </div>
+            <div class="input">
+                <img src="images/search.png" alt="search" class="search-icon">
+                <input type="text" placeholder="What do you want to play?"
+                    class="search-bar">
+            </div>
+         
+            <div class="btn">
+                <button onclick="showComingSoon()" class="install show-btn">App Install</button>
+                
+                <!-- <button class="signup">signup</button> -->
+                <button class="login" id="login-btn">LogIn</button>
+                <div id="user-profile" style="display: none;"></div>
+            </div>
+        </div>
+        <div class="container flex">
+
+            <div class="left border">
+                <div class="library bg-gray rounded">
+                  <h2>Your Library <span onclick="showComingSoon()" class="show-btn">+</span></h2>
+
+                  <div class="lcard">
+                      <h3>Create your first playlist</h3>
+                      <p>It's easy, we'll help you</p>
+                      <button onclick="showComingSoon()" class="show-btn">Create playlist</button>
+
+                      <div id="comingSoon" class="playlist-coming-soon hidden">
+                      <span class="close-btn" onclick="closeComingSoon()">✖</span>
+                      <!-- <h2 class="cp">Create Playlist</h2> -->
+                      <p class="coming-text">This feature is currently <span class="highlight">not accessible</span>.</p>
+                      <p class="subtext">Song management will be available in a future update. Stay tuned!</p>
+                      </div>
+                      
+
+                  </div>
+
+                  <div class="lcard">
+                      <h3>Let's find some podcasts to follow</h3>
+                      <p>We'll keep you updated on new episodes</p>
+                      <button onclick="showComingSoon()" class="show-btn">Browse podcasts</button>
+                  </div>
+
+                  <div class="footer-links">
+                      <a href="footer/legal.html">Legal</a>
+                      <a href="footer/safety-privacy.html">Safety & Privacy
+                          Center</a>
+                      <a href="footer/privacy-policy.html">Privacy Policy</a>
+                      <a href="footer/cookies.html">Cookies</a>
+                      <a href="footer/about-ads.html">About Ads</a>
+                      <a href="footer/accessibility.html">Accessibility</a>
+                      <a href="footer/cookies.html">Cookies</a>
+
+                  </div>
+              </div>
+            </div>
+            <div class="right bg-gray rounded">
+                <div class="trendingsongs">
+                    <h2>Trending Songs</h2>
+                    <div class="card-cointainer">
+                        
+                        <div class="card" onclick="changeSong('Nasha(From Raid 2)', 'Tujh mein hi basa hai mera nasha...', 'songs/Nasha - Raid 2.mp3', 'https://i.scdn.co/image/ab67616d00001e02a118f695487381bae6fbb59b')">
+                            <img src="https://i.scdn.co/image/ab67616d00001e02a118f695487381bae6fbb59b" alt="image not found">
+                            <h2>Nasha(From "Raid 2")</h2>
+                            <p>Tujh mein hi basa hai mera nasha...</p>
+                        </div>
+                        
+                        <div class="card" onclick="changeSong('Aaj Ki Raat From Stree 2', 'Aaj ki raat hona hai jo ho jaane do...', 'songs/Aaj Ki Raat (From _Stree 2_).mp3', 'https://i.scdn.co/image/ab67616d0000b2735e16168f7e8ff4fb8aace6cf')">
+                            <img src="https://i.scdn.co/image/ab67616d0000b2735e16168f7e8ff4fb8aace6cf" alt="image not found">
+                            <h2>Aaj Ki Raat</h2>
+                            <p>Aaj ki raat hona hai jo ho jaane do...</p>
+                        </div>
+
+                        <div class="card" onclick="changeSong('Aayi Nai Stree 2', 'Aayi nai, aayi nai, aayi nai...', 'songs/Aayi Nai Stree 2.mp3', '	https://i.scdn.co/image/ab67616d00001e02c617a7ebd0cfe5bdbb26d262')">
+                            <img src="	https://i.scdn.co/image/ab67616d00001e02c617a7ebd0cfe5bdbb26d262" alt="image not found">
+                            <h2>Aayi Nai Stree 2</h2>
+                            <p>Aayi nai, aayi nai, aayi nai...</p>
+                        </div>
+                        
+                        <div class="card" onclick="changeSong('Ishq Hai - Mismatched Season 3', 'Tumse mile to kuch gunguni si...', 'songs/128-Ishq Hai - Mismatched Season 3.mp3', 'https://i.scdn.co/image/ab67616d0000b27379f4a87c23143f0abb14c279')">
+                            <img src="https://i.scdn.co/image/ab67616d0000b27379f4a87c23143f0abb14c279" alt="image not found">
+                            <h2>Ishq Hai</h2>
+                            <p>Tumse mile to kuch gunguni si...</p>
+                        </div>
+
+                        <div class="card" onclick="changeSong('Jaane Tu - Chhaava', 'Jaane tu jaanun main...', 'songs/Jaane Tu - Chhaava.mp3', '	https://i.scdn.co/image/ab67616d00001e02b4527a77c0288eb6ff168112')">
+                            <img src="	https://i.scdn.co/image/ab67616d00001e02b4527a77c0288eb6ff168112" alt="image not found">
+                            <h2>Jaane Tu - Chhaava</h2>
+                            <p>Jaane tu jaanun main...</p>
+                        </div>
+                        
+                        <div class="card" onclick="changeSong('Millionaire Glory', 'Main millionaire, tu bhi...', 'songs/Millionaire Glory.mp3', '	https://i.scdn.co/image/ab67616d0000b273aad3f4b601ae8763b3fc4e88')">
+                            <img src="	https://i.scdn.co/image/ab67616d0000b273aad3f4b601ae8763b3fc4e88" alt="image not found">
+                            <h2>Millionaire Glory</h2>
+                            <p>Main millionaire, tu bhi...</p>
+                        </div>
+
+                        <div class="card" onclick="changeSong('Raanjhan Do Patti', 'Aise na jao piya, aise na...', 'songs/Raanjhan Do Patti.mp3', 'https://i.scdn.co/image/ab67616d0000b273773c5f60bcb309ef8802e4ef')">
+                            <img src="https://i.scdn.co/image/ab67616d0000b273773c5f60bcb309ef8802e4ef" alt="image not found">
+                            <h2>Raanjhan Do Patti</h2>
+                            <p>Aise na jao piya, aise na...</p>
+                        </div>
+                        
+                        <div class="card" onclick="changeSong('Tainu Khabar Nahi Munjya', 'Ve maahi, tainu khabar nahi...', 'songs/Tainu Khabar Nahi Munjya.mp3', '	https://i.scdn.co/image/ab67616d0000b27367a876fee5cd00ed0f395a9e')">
+                            <img src="	https://i.scdn.co/image/ab67616d0000b27367a876fee5cd00ed0f395a9e" alt="image not found">
+                            <h2>Tainu Khabar Nahi</h2>
+                            <p>Ve maahi, tainu khabar nahi...</p>
+                        </div>
+
+                        <div class="card" onclick="changeSong('Tera Chehra Sanam Teri Kasam', 'Meri bechainiyon ko chain mil...', 'songs/Tera Chehra Sanam Teri Kasam.mp3', 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjLD22Unrk8DUpSRdyIBP5Vte57VmX3XKjZRCkQLmZXq3ovzBYhsKKyZDABmWAwAFhflFgzzjN_r_E5farPM8ZSPS1KcfwOylGvdbzO8u39nGJdT_vr1NpnnvBqp3sOgeNQlSozQLkMGIDpGT0ck2O12Uzc7qV2S44uUkwj4NYoY6vmi1KiLSkwS97pxGPp/w1600/The%20Power%20of%20Fandom!%20Sanam%20Teri%20Kasam.jpg')">
+                            <img src="	https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjLD22Unrk8DUpSRdyIBP5Vte57VmX3XKjZRCkQLmZXq3ovzBYhsKKyZDABmWAwAFhflFgzzjN_r_E5farPM8ZSPS1KcfwOylGvdbzO8u39nGJdT_vr1NpnnvBqp3sOgeNQlSozQLkMGIDpGT0ck2O12Uzc7qV2S44uUkwj4NYoY6vmi1KiLSkwS97pxGPp/w1600/The%20Power%20of%20Fandom!%20Sanam%20Teri%20Kasam.jpg" alt="image not found">
+                            <h2>Sanam Teri Kasam</h2>
+                            <p>"Meri bechainiyon ko chain mil..."</p>
+                        </div>
+                        
+                        <div class="card" onclick="changeSong('Tu Hain Toh Main Hoon - Sky Force', 'Tu ishq hai toh main baahon...', 'songs/Tu Hain Toh Main Hoon Sky Force.mp3', '	https://i.scdn.co/image/ab67616d0000b2738405a129d4151b31d13721e0')">
+                            <img src="		https://i.scdn.co/image/ab67616d0000b2738405a129d4151b31d13721e0" alt="image not found">
+                            <h2>Tu Hain Toh Main</h2>
+                            <p>Tu ishq hai toh main baahon...</p>
+                        </div>
+                                     
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        <div class="player-class">
+            <div class="song-info">
+              <img src="https://i.scdn.co/image/ab67616d00001e02a118f695487381bae6fbb59b" alt="Song Cover" id="cover-img">
+              <div class="song-text">
+                <div class="song-title" id="song-title">Nasha(From "Raid 2")</div>
+                <div class="song-artist" id="song-artist">Tujh mein hi basa hai mera nasha...</div>
+              </div>
+            </div>
+            
+            <audio id="audio-player"></audio>
+
+            <div class="controls">
+                <div class="buttons">
+                    <button id="prev">&#9664;&#9664;</button>
+                    <button id="play-button">&#9654;</button>
+                    <button id="pause-button" style="display: none;">&#10073;&#10073;</button> 
+                    <button id="next">&#9654;&#9654;</button>
+                  </div>
+              <div class="seekbar">
+                <span class="time" id="current-time">0:00</span>
+                <input type="range" id="seek" value="0" min="0" max="100">
+                <span class="time" id="total-time">5:08</span>
+              </div>
+            </div>
+          </div>
+        </div>
+          <script type="module" src="/src/main.js"></script>
+          <script>
+            function showComingSoon() {
+              document.getElementById("comingSoon").classList.remove("hidden");
+              document.getElementById("comingSoon").classList.add("active");
+              document.querySelector(".right").classList.add("blur");
+            }
+          
+            function closeComingSoon() {
+              document.getElementById("comingSoon").classList.remove("active");
+              document.getElementById("comingSoon").classList.add("hidden");
+              document.querySelector(".right").classList.remove("blur");
+            }
+
+          </script>
+    </body>
+</html>
